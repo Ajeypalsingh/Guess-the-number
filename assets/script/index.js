@@ -1,19 +1,18 @@
 "use strict";
 const body = document.querySelector("body");
 const message = document.querySelector(".message");
-const guessNum = document.querySelector(".check");
+const guessBtn = document.querySelector(".check");
 const displayNum = document.querySelector(".number");
 const displayScore = document.querySelector(".score");
 const displayHighscore = document.querySelector(".highscore");
+const input = document.querySelector(".guess");
 
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 let highscore = 0;
-console.log(secretNumber);
 
-guessNum.addEventListener("click", function () {
+guessBtn.addEventListener("click", function () {
   const guess = Number(document.querySelector(".guess").value);
-  console.log(guess, typeof guess);
 
   // When there is no input
   if (!guess) {
@@ -53,10 +52,10 @@ document.querySelector(".again").addEventListener("click", function () {
   secretNumber = Math.trunc(Math.random() * 20) + 1;
 
   message.textContent = "Start guessing...";
-  document.querySelector(".score").textContent = score;
-  document.querySelector(".number").textContent = "?";
-  document.querySelector(".guess").value = "";
+  displayScore.textContent = score;
+  displayNum.textContent = "?";
+  input.value = "";
 
-  document.querySelector("body").style.backgroundColor = "#222";
-  document.querySelector(".number").style.width = "15rem";
+  body.style.backgroundColor = "#222";
+  displayNum.style.width = "15rem";
 });
